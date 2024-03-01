@@ -335,6 +335,8 @@ NS_ASSUME_NONNULL_BEGIN
     if (urlString.length == 0) {
         return sendResult( @{ @"error" : @"Invalid url"});
     }
+
+    urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]; // PATCH
     
     NSURL *url = [NSURL URLWithString:urlString];
     
